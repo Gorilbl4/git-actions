@@ -1,0 +1,21 @@
+name: Hello
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JavaScript
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Run script
+        run: node hello.js
