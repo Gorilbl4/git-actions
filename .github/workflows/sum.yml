@@ -1,0 +1,23 @@
+name: Sum
+
+on:
+  push:
+    branches:
+      -  main
+
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking the repository
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Start test
+        run: node test_sum.js
